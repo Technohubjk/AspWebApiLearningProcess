@@ -60,7 +60,7 @@ namespace AspWebApiCrud.Controllers
         [HttpDelete]
         public IHttpActionResult EmpDelete(int id)
         {
-          var emp=  db.tbl_Employees.Where(m => m.id == id).FirstOrDefault();
+            var emp = db.tbl_Employees.Where(m => m.id == id).FirstOrDefault();
             db.Entry(emp).State = System.Data.Entity.EntityState.Deleted;
             db.SaveChanges();
             return Ok();

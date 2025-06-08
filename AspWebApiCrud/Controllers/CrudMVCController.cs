@@ -114,14 +114,14 @@ namespace AspWebApiCrud.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             client.BaseAddress = new Uri("https://localhost:44370/api/CrudApi");
-            var res = client.DeleteAsync("CrudApi"+id.ToString());
+            var res = client.DeleteAsync("CrudApi/"+id.ToString());
             res.Wait();
             var test = res.Result;
             if (test.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
-            return View("Edit");
+            return View("Delete");
         }
     }
 }
